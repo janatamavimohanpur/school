@@ -109,7 +109,7 @@
             <div class="container">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6">
-                        <img src="Images/school.jpg" alt="School Campus" class="img-fluid rounded shadow-lg">
+                        <img src="Images/principal.jpg" alt="School Campus" class="img-fluid rounded shadow-lg">
                     </div>
                     <div class="col-lg-6">
                         <h2>Our Legacy of Excellence</h2>
@@ -157,23 +157,23 @@
                 <div class="row gy-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="team-card">
-                            <img src="https://via.placeholder.com/150" alt="Teacher 1" class="team-img">
-                            <h5>Mr. Ram Kumar Yadav</h5>
-                            <p>Science Coordinator</p>
+                            <img src="Images/principal.jpg" alt="Teacher 1" class="team-img">
+                            <h5>Mr.</h5>
+                            <p>Sciencer</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="team-card">
-                            <img src="https://via.placeholder.com/150" alt="Teacher 2" class="team-img">
-                            <h5>Mrs. Sita Devi Mandal</h5>
-                            <p>English Department Head</p>
+                            <img src="Images/principal.jpg" alt="Teacher 2" class="team-img">
+                            <h5>Mr.</h5>
+                            <p>English</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="team-card">
-                            <img src="https://via.placeholder.com/150" alt="Teacher 3" class="team-img">
-                            <h5>Mr. Hari Prasad Sharma</h5>
-                            <p>Mathematics Specialist</p>
+                            <img src="Images/principal.jpg" alt="Teacher 3" class="team-img">
+                            <h5>Mr.</h5>
+                            <p>Mathematics</p>
                         </div>
                     </div>
                 </div>
@@ -219,4 +219,5 @@
         const canvas = document.getElementById('star-animation'); const ctx = canvas.getContext('2d'); let stars = []; const numStars = 250; function setCanvasSize() { canvas.width = window.innerWidth; canvas.height = document.body.scrollHeight; } setCanvasSize(); function Star() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 1.5 + 0.5; this.opacity = Math.random(); this.fadeDirection = (Math.random() > 0.5 ? 0.015 : -0.015) * (Math.random() + 0.5); } Star.prototype.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill(); }; Star.prototype.update = function() { this.opacity += this.fadeDirection; if (this.opacity <= 0 || this.opacity >= 1) { this.fadeDirection *= -1; } this.draw(); }; function createStars() { stars = []; for (let i = 0; i < numStars; i++) { stars.push(new Star()); } } function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => { star.update(); }); } window.addEventListener('resize', () => { setCanvasSize(); createStars(); }); createStars(); animate();
     </script>
 </body>
+
 </html>
