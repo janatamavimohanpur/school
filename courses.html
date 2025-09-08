@@ -37,6 +37,48 @@
         .course-card-meta { font-size: 0.9rem; color: var(--primary-color); margin-bottom: 1rem; }
         .course-card-description { color: var(--text-muted); flex-grow: 1; }
         .course-card-footer { padding: 0 1.5rem 1.5rem; margin-top: auto; z-index: 2; background: transparent; }
+
+        /* *** फुटर के लिए स्टाइल यहाँ जोड़ी गई है *** */
+        footer {
+            background-color: #060610;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding-top: 4rem;
+        }
+        footer h5 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+        .social-icons .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            margin-right: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
     </style>
 </head>
 <body>
@@ -72,11 +114,47 @@
         </section>
     </main>
     
+    <!-- *** फुटर का HTML कोड यहाँ जोड़ा गया है *** -->
+    <footer class="mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <h5>Shree Janata Higher Sec. School</h5>
+                    <p>Providing quality education and fostering holistic development for a brighter future in the heart of Mohanpur Kamalpur.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="courses.html" class="footer-link">Courses</a></li>
+                        <li class="mb-2"><a href="notices.html" class="footer-link">Notices</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Follow Us</h5>
+                    <p>Stay connected with us through our social media channels.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2024 Shree Janata Secondary School, Mohanpur Kamalpur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const canvas = document.getElementById('star-animation'); const ctx = canvas.getContext('2d'); let stars = []; const numStars = 250; function setCanvasSize() { canvas.width = window.innerWidth; canvas.height = document.body.scrollHeight; } setCanvasSize(); function Star() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 1.5 + 0.5; this.opacity = Math.random(); this.fadeDirection = (Math.random() > 0.5 ? 0.015 : -0.015) * (Math.random() + 0.5); } Star.prototype.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill(); }; Star.prototype.update = function() { this.opacity += this.fadeDirection; if (this.opacity <= 0 || this.opacity >= 1) { this.fadeDirection *= -1; } this.draw(); }; function createStars() { stars = []; for (let i = 0; i < numStars; i++) { stars.push(new Star()); } } function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => { star.update(); }); } window.addEventListener('resize', () => { setCanvasSize(); createStars(); }); createStars(); animate();
         
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxmIjuaQr6g4-GLCQGdpf3MGExd2C77tHQMLBhF0ARO6wzDJX5ajJUVMpZ-ydn_j_Dn/exec'; // Courses पेज के लिए ?page=courses की ज़रूरत नहीं
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxmIjuaQr6g4-GLCQGdpf3MGExd2C77tHQMLBhF0ARO6wzDJX5ajJUVMpZ-ydn_j_Dn/exec';
         const coursesContainer = document.getElementById('courses-container');
         const loadingSpinner = document.getElementById('loading-spinner');
 
