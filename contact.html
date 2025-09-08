@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Shree Janata Secondary School</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome (Icons CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --primary-color: #4d96ff; --dark-bg: #0a0a1a; --text-color: #f0f0f0; --text-muted: #a0a0a0; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-color); overflow-x: hidden; }
+        #star-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .navbar { background: rgba(10, 10, 26, 0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+        .navbar .nav-link { font-weight: 600; transition: color 0.3s; }
+        .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--primary-color) !important; }
+        section { padding: 80px 0; }
+        .section-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 50px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-top: -40px; margin-bottom: 50px; font-size: 1.1rem; }
+        
+        .contact-section { background-color: rgba(25, 20, 60, 0.7); padding-top: 120px; }
+        .form-control { background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-color); }
+        .form-control:focus { background-color: rgba(255, 255, 255, 0.1); color: var(--text-color); border-color: var(--primary-color); box-shadow: 0 0 10px rgba(77, 150, 255, 0.5); }
+        .form-control::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+        #msg-box { display: none; }
+        
+        #contact-details, #office-hours, #faq { background-color: transparent; } /* Remove separate backgrounds to keep it clean */
+        #contact-details { background-color: rgba(10, 40, 40, 0.7); }
+        #office-hours { background-color: rgba(40, 10, 50, 0.7); }
+        #faq { background-color: rgba(20, 20, 55, 0.7); }
+
+        .contact-info-list li { margin-bottom: 1.5rem; }
+        .contact-info-list .icon { font-size: 1.5rem; color: var(--primary-color); margin-right: 1rem; vertical-align: middle; }
+        .map-container { border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        .accordion-item { background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .accordion-header .accordion-button { background-color: transparent; color: var(--text-color); font-weight: 600; }
+        .accordion-button:focus { box-shadow: none; }
+        .accordion-button:not(.collapsed) { background-color: rgba(77, 150, 255, 0.1); color: var(--primary-color); }
+        .accordion-button::after { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f0f0f0'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
+        .accordion-button:not(.collapsed)::after { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234d96ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
+        .accordion-body { color: var(--text-muted); }
+
+        /* ========= फुटर के लिए नई स्टाइल यहाँ से शुरू ========= */
+        footer {
+            background-color: #060610;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding-top: 4rem;
+        }
+        footer h5 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+        .social-icons .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            margin-right: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        /* ========================================= */
+    </style>
+</head>
+<body>
+
+    <canvas id="star-animation"></canvas>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Shree Janata Higher Sec. School</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="notices.html">Notices</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- आपका मौजूदा कंटेंट वैसा का वैसा ही है -->
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you. Fill out the form below to send us a message.</p>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card p-4 p-md-5" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div id="msg-box" class="alert alert-success" role="alert"></div>
+                            <form id="contact-form">
+                                <div class="row g-4">
+                                    <div class="col-md-6"><input type="text" class="form-control p-3" name="Name" placeholder="Your Name" required></div>
+                                    <div class="col-md-6"><input type="email" class="form-control p-3" name="Email Id" placeholder="Your Email Id" required></div>
+                                    <div class="col-md-6"><input type="tel" class="form-control p-3" name="Mobile No." placeholder="Mobile Number" required></div>
+                                    <div class="col-md-6"><input type="text" class="form-control p-3" name="Subject" placeholder="Subject" required></div>
+                                    <div class="col-12"><textarea class="form-control p-3" name="Messages" rows="5" placeholder="Your Message" required></textarea></div>
+                                    <div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- बाकी के सेक्शन्स भी वैसे ही रहेंगे -->
+        <section id="contact-details">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Direct Contact Information</h3>
+                        <ul class="list-unstyled contact-info-list">
+                            <li><i class="fas fa-map-marker-alt icon"></i><span>Shree Janata Higher Secondary School,<br>Mohanpur Kamalpur, Siraha, Nepal</span></li>
+                            <li><i class="fas fa-phone icon"></i><span>+977-XXXXXXXXXX</span></li>
+                            <li><i class="fas fa-envelope icon"></i><span>info@janatamavi.edu.np (example)</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Our Location</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!4v1757256377889!6m8!1m7!1smbvSSSEx-V8G2ZUHFc4QAA!2m2!1d26.70725006783344!2d86.38970236952137!3f243.07274!4f0!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="office-hours">
+            <div class="container text-center">
+                <h2 class="section-title">Office Hours</h2>
+                <div class="row">
+                    <div class="col-md-6"><p class="fs-5"><i class="fas fa-clock me-2"></i><strong>Sunday - Friday:</strong> 10:00 AM to 4:00 PM</p></div>
+                    <div class="col-md-6"><p class="fs-5"><i class="fas fa-door-closed me-2"></i><strong>Saturday:</strong> Closed</p></div>
+                </div>
+            </div>
+        </section>
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto"><div class="accordion" id="faqAccordion"><div class="accordion-item mb-3"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">What is the admission process?</button></h2><div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">The admission process starts in [Month Name]. You need to collect the form from the school office, submit it with the required documents, and then the student may have to appear for an entrance test or an interview.</div></div></div><div class="accordion-item mb-3"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">What documents are required for admission?</button></h2><div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">You will need the student's birth certificate, transfer certificate (TC) from the previous school, the mark sheet of the last class attended, passport-sized photographs, and a copy of the parent's/guardian's citizenship certificate.</div></div></div><div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">What extracurricular activities do you offer?</button></h2><div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We offer a wide range of activities including sports like football and cricket, cultural programs, science exhibitions, debate competitions, and art and craft classes to ensure the holistic development of our students.</div></div></div></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========= नया और बेहतर फुटर यहाँ से शुरू ========= -->
+    <footer class="mt-0">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: About School -->
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <h5>Shree Janata Higher Sec. School</h5>
+                    <p>Providing quality education and fostering holistic development for a brighter future in the heart of Mohanpur Kamalpur.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="courses.html" class="footer-link">Courses</a></li>
+                        <li class="mb-2"><a href="notices.html" class="footer-link">Notices</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact & Social -->
+                <div class="col-lg-4 col-md-12">
+                    <h5>Follow Us</h5>
+                    <p>Stay connected with us through our social media channels.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2024 Shree Janata Secondary School, Mohanpur Kamalpur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ============================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Star Animation JavaScript
+        const canvas = document.getElementById('star-animation'); const ctx = canvas.getContext('2d'); let stars = []; const numStars = 250; function setCanvasSize() { canvas.width = window.innerWidth; canvas.height = document.body.scrollHeight; } setCanvasSize(); function Star() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 1.5 + 0.5; this.opacity = Math.random(); this.fadeDirection = (Math.random() > 0.5 ? 0.015 : -0.015) * (Math.random() + 0.5); } Star.prototype.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill(); }; Star.prototype.update = function() { this.opacity += this.fadeDirection; if (this.opacity <= 0 || this.opacity >= 1) { this.fadeDirection *= -1; } this.draw(); }; function createStars() { stars = []; for (let i = 0; i < numStars; i++) { stars.push(new Star()); } } function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => { star.update(); }); } window.addEventListener('resize', () => { setCanvasSize(); createStars(); }); createStars(); animate();
+        
+        // Form Submission to Google Sheet
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxmIjuaQr6g4-GLCQGdpf3MGExd2C77tHQMLBhF0ARO6wzDJX5ajJUVMpZ-ydn_j_Dn/exec'; // !! यहाँ अपना सही Web App URL पेस्ट करें !!
+        const form = document.getElementById('contact-form');
+        const msgBox = document.getElementById('msg-box');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => response.json())
+            .then(data => {
+                if(data.result === 'success'){
+                    msgBox.innerHTML = "Thank you! Your message has been sent successfully.";
+                    msgBox.className = 'alert alert-success';
+                    msgBox.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error(data.error || 'Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                msgBox.innerHTML = "Oops! Something went wrong. Please try again. Error: " + error.message;
+                msgBox.className = 'alert alert-danger';
+                msgBox.style.display = 'block';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Send Message';
+                setTimeout(() => {
+                    msgBox.style.display = 'none';
+                }, 6000);
+            });
+        });
+    </script>
+</body>
+</html>

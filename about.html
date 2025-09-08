@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Shree Janata Secondary School</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome (Icons CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { 
+            --primary-color: #4d96ff; 
+            --dark-bg: #0a0a1a; 
+            --text-color: #f0f0f0; 
+            --text-muted: #a0a0a0;
+        }
+
+        /* ========= यहाँ बदलाव किया गया है ========= */
+        .text-muted {
+            color: #f0f0f0 !important; /* सभी हल्के टेक्स्ट को सफ़ेद कर दिया गया है */
+        }
+        /* ========================================= */
+
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-color); overflow-x: hidden; }
+        #star-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .navbar { background: rgba(10, 10, 26, 0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+        .navbar .nav-link { font-weight: 600; transition: color 0.3s; }
+        .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--primary-color) !important; }
+        section { padding: 80px 0; }
+        .section-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 50px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-color); margin-top: -40px; margin-bottom: 50px; font-size: 1.1rem; }
+
+        .about-hero-section { padding-top: 150px; padding-bottom: 100px; }
+        #our-history { background-color: rgba(10, 40, 40, 0.7); }
+        #mission-vision { background-color: rgba(20, 20, 55, 0.7); }
+        #principal-message { background-color: rgba(40, 10, 50, 0.7); }
+        #our-team { background-color: rgba(15, 45, 25, 0.7); }
+        
+        .principal-img { max-width: 250px; border-radius: 50%; border: 5px solid var(--primary-color); box-shadow: 0 0 20px rgba(77, 150, 255, 0.4); }
+        
+        .team-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .team-card:hover { transform: translateY(-10px); }
+        .team-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 3px solid var(--primary-color); margin-bottom: 1.5rem; }
+        .team-card h5 { color: var(--text-color); margin-bottom: 0.5rem; }
+        .team-card p {
+            color: var(--text-color); 
+            font-weight: 600;
+        }
+        
+        #principal-message p { color: #f0f0f0 !important; }
+
+        footer { background-color: #060610; border-top: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-color); padding-top: 4rem; }
+        footer h5 { color: var(--text-color); margin-bottom: 1.5rem; }
+        .footer-link { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+        .footer-link:hover { color: var(--primary-color); }
+        .social-icons .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); color: var(--text-color); margin-right: 10px; text-decoration: none; transition: background-color 0.3s ease, transform 0.3s ease; }
+        .social-icons .social-icon:hover { background-color: var(--primary-color); transform: scale(1.1); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 1.5rem 0; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+
+    <canvas id="star-animation"></canvas>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Shree Janata Higher Sec. School</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="notices.html">Notices</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero-section text-center">
+            <div class="container">
+                <h1 class="section-title">Our Story & Commitment</h1>
+                <p class="section-subtitle lead">Learn about our journey, our values, and the people who make our school a center of excellence.</p>
+            </div>
+        </section>
+
+        <section id="our-history">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <img src="Images/school.jpg" alt="School Campus" class="img-fluid rounded shadow-lg">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Our Legacy of Excellence</h2>
+                        <p class="text-muted">Established in [Year of Establishment], Shree Janata Higher Secondary School began with a humble vision: to provide quality education to the children of Mohanpur Kamalpur and its surrounding areas. Over the decades, we have grown from a small institution into a beacon of learning, nurturing thousands of students who have gone on to excel in various fields. Our journey is a testament to the unwavering support of our community and the dedication of our staff.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission-vision">
+            <div class="container">
+                <div class="row text-center gy-5">
+                    <div class="col-md-6">
+                        <div class="icon-container mb-3">
+                            <i class="fas fa-bullseye fa-3x text-primary"></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p class="text-muted">To empower students with knowledge, skills, and values to excel in life and contribute positively to society. We strive to foster a love for learning and a spirit of inquiry.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="icon-container mb-3">
+                            <i class="fas fa-eye fa-3x text-primary"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p class="text-muted">To be a leading educational institution recognized for its excellence in holistic education and for nurturing responsible, compassionate, and successful global citizens.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="principal-message">
+            <div class="container">
+                <h2 class="section-title">Message from the Principal</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0"><img src="Images/principal.jpg" class="principal-img" alt="Principal"></div>
+                    <div class="col-lg-8"><h4>Building a Bright Future Through Education</h4><p>Dear parents and beloved students, welcome to Shree Janata Higher Secondary School Mohanpur. We believe that education is not just about acquiring knowledge, but also about building character, discipline, and life values. We are committed to providing a supportive and inspiring environment for every student to discover their potential and become a successful and responsible citizen. Let us all work together to build a better tomorrow for our children.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="our-team">
+            <div class="container">
+                <h2 class="section-title">Meet Our Dedicated Team</h2>
+                <p class="section-subtitle">Our teachers are our greatest strength, dedicated to guiding every student towards success.</p>
+                <div class="row gy-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <img src="https://via.placeholder.com/150" alt="Teacher 1" class="team-img">
+                            <h5>Mr. Ram Kumar Yadav</h5>
+                            <p>Science Coordinator</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <img src="https://via.placeholder.com/150" alt="Teacher 2" class="team-img">
+                            <h5>Mrs. Sita Devi Mandal</h5>
+                            <p>English Department Head</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <img src="https://via.placeholder.com/150" alt="Teacher 3" class="team-img">
+                            <h5>Mr. Hari Prasad Sharma</h5>
+                            <p>Mathematics Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0"><h5>Shree Janata Higher Sec. School</h5><p class="text-muted">Providing quality education and fostering holistic development for a brighter future in the heart of Mohanpur Kamalpur.</p></div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="courses.html" class="footer-link">Courses</a></li>
+                        <li class="mb-2"><a href="notices.html" class="footer-link">Notices</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Follow Us</h5>
+                    <p class="text-muted">Stay connected with us through our social media channels.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center"><p class="mb-0">&copy; 2024 Shree Janata Secondary School, Mohanpur Kamalpur. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Star Animation JavaScript
+        const canvas = document.getElementById('star-animation'); const ctx = canvas.getContext('2d'); let stars = []; const numStars = 250; function setCanvasSize() { canvas.width = window.innerWidth; canvas.height = document.body.scrollHeight; } setCanvasSize(); function Star() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 1.5 + 0.5; this.opacity = Math.random(); this.fadeDirection = (Math.random() > 0.5 ? 0.015 : -0.015) * (Math.random() + 0.5); } Star.prototype.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill(); }; Star.prototype.update = function() { this.opacity += this.fadeDirection; if (this.opacity <= 0 || this.opacity >= 1) { this.fadeDirection *= -1; } this.draw(); }; function createStars() { stars = []; for (let i = 0; i < numStars; i++) { stars.push(new Star()); } } function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => { star.update(); }); } window.addEventListener('resize', () => { setCanvasSize(); createStars(); }); createStars(); animate();
+    </script>
+</body>
+</html>

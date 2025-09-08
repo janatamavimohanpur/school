@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Janata Secondary School, Mohanpur Kamalpur</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome (Icons CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --primary-color: #4d96ff; --dark-bg: #0a0a1a; --text-color: #f0f0f0; --text-muted: #a0a0a0; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-color); overflow-x: hidden; }
+        #star-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .navbar { background: rgba(10, 10, 26, 0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+        .navbar .nav-link { font-weight: 600; transition: color 0.3s; }
+        .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--primary-color) !important; }
+        section { padding: 80px 0; }
+        .section-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 50px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-top: -40px; margin-bottom: 50px; font-size: 1.1rem; }
+        
+        .hero-section { min-height: 100vh; display: flex; align-items: center; text-align: left; }
+        .hero-section h1 { font-size: 3.5rem; font-weight: 700; min-height: 150px; }
+        .hero-section .lead { font-size: 1.2rem; }
+        .hero-section .tagline { font-size: 1.5rem; color: var(--primary-color); font-weight: 600; margin-top: 1rem; }
+        
+        .hero-image {
+            border-radius: 20px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(77, 150, 255, 0.4);
+            max-width: 100%;
+        }
+
+        .card-custom { background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; text-align: center; backdrop-filter: blur(8px); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; height: 100%; }
+        .card-custom:hover { transform: translateY(-10px); border-color: rgba(77, 150, 255, 0.5); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(77, 150, 255, 0.3); }
+        .card-custom .icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
+        .card-custom h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+        .card-custom p { color: var(--text-muted); }
+        
+        .features-section { background-color: rgba(10, 40, 40, 0.7); }
+        #principal-message { background-color: rgba(40, 10, 50, 0.7); }
+        #academics { background-color: rgba(20, 20, 55, 0.7); }
+        #admission { background-color: rgba(15, 45, 25, 0.7); }
+        #gallery { background-color: rgba(50, 15, 25, 0.7); }
+        #why-us { background-color: rgba(60, 20, 20, 0.7); }
+        #events { background-color: rgba(20, 60, 60, 0.7); }
+        #mission-vision { background-color: rgba(65, 45, 15, 0.7); }
+
+        .principal-img { max-width: 250px; border-radius: 50%; border: 5px solid var(--primary-color); box-shadow: 0 0 20px rgba(77, 150, 255, 0.4); }
+        .gallery-card { border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)); transition: transform 0.3s ease; }
+        .gallery-card:hover { transform: scale(1.05); }
+        .gallery-card img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-card-body { padding: 15px; text-align: center; }
+        .admission-list { list-style: none; padding-left: 0; }
+        .admission-list li { background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)); padding: 15px; margin-bottom: 10px; border-radius: 10px; border-left: 4px solid var(--primary-color); }
+        .admission-list i { color: var(--primary-color); margin-right: 12px; }
+        #principal-message p { color: #f0f0f0 !important; }
+
+        /* ========= फुटर के लिए नई स्टाइल यहाँ से शुरू ========= */
+        footer {
+            background-color: #060610;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding-top: 4rem;
+        }
+        footer h5 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+        .social-icons .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            margin-right: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        /* ========================================= */
+    </style>
+</head>
+<body>
+
+    <canvas id="star-animation"></canvas>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Shree Janata Higher Sec. School</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="notices.html">Notices</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- आपका मौजूदा कंटेंट वैसा का वैसा ही है -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h1 class="display-4"><span id="typed-heading"></span></h1>
+                        <p class="lead">Mohanpur Kamalpur, Siraha (Sukhipur Municipality)</p>
+                        <p class="tagline">A Confluence of Knowledge, Culture, and Success</p>
+                    </div>
+                    <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                        <img src="Images/school.jpg" alt="Shree Janata Secondary School Building" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title text-center">Our Features</h2>
+                <div class="row gy-4">
+                    <div class="col-md-6 col-lg-3"><div class="card-custom"><div class="icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Experienced Teachers</h3><p>A team of highly educated and dedicated teachers who provide the best guidance to students.</p></div></div>
+                    <div class="col-md-6 col-lg-3"><div class="card-custom"><div class="icon"><i class="fas fa-flask"></i></div><h3>Modern Laboratories</h3><p>Well-equipped laboratories with all necessary equipment for science and computer students.</p></div></div>
+                    <div class="col-md-6 col-lg-3"><div class="card-custom"><div class="icon"><i class="fas fa-book-open"></i></div><h3>Spacious Library</h3><p>A treasure trove of knowledge with books on every subject and a quiet environment for studying.</p></div></div>
+                    <div class="col-md-6 col-lg-3"><div class="card-custom"><div class="icon"><i class="fas fa-futbol"></i></div><h3>Sports Facilities</h3><p>Sports are encouraged for physical development, for which we have a large playground.</p></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="principal-message">
+            <div class="container">
+                <h2 class="section-title">Message from the Principal</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0"><img src="Images/principal.jpg" class="principal-img" alt="Principal"></div>
+                    <div class="col-lg-8"><h4>Building a Bright Future Through Education</h4><p>Dear parents and beloved students, welcome to Shree Janata Higher Secondary School Mohanpur. We believe that education is not just about acquiring knowledge, but also about building character, discipline, and life values. We are committed to providing a supportive and inspiring environment for every student to discover their potential and become a successful and responsible citizen. Let us all work together to build a better tomorrow for our children.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="academics">
+            <div class="container">
+                <h2 class="section-title">Our Teaching Methodology</h2>
+                <p class="section-subtitle">We don't just teach, we inspire to learn.</p>
+                <div class="row gy-4 text-center">
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-lightbulb"></i></div><h3>Interactive Classes</h3><p>We encourage students to ask questions, discuss, and participate in group activities.</p></div></div>
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-tasks"></i></div><h3>Project-Based Learning</h3><p>Students are motivated to work on practical projects so they can learn to apply theoretical concepts.</p></div></div>
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-user-friends"></i></div><h3>Personal Attention</h3><p>Our teachers understand the needs of each student and provide them with personal support in their learning journey.</p></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="admission">
+            <div class="container">
+                <h2 class="section-title">Admission Process</h2>
+                <div class="row g-5">
+                    <div class="col-lg-6"><h4>Admission Steps</h4><p>The admission process at our school is simple and transparent. Admissions for the new session begin in [Month Name].</p><ol class="admission-list mt-4"><li>Obtain the admission form and prospectus from the school office.</li><li>Submit the duly filled form with required documents to the office.</li><li>Participate in a general entrance test and/or interview.</li><li>Upon selection, confirm your admission by paying the fees.</li></ol></div>
+                    <div class="col-lg-6"><h4>Required Documents</h4><p>Submission of copies of the following documents is mandatory at the time of admission:</p><ul class="admission-list mt-4"><li><i class="fas fa-check-circle"></i> Student's Birth Certificate</li><li><i class="fas fa-check-circle"></i> Marksheet / Report Card of the previous class</li><li><i class="fas fa-check-circle"></i> Transfer Certificate (TC) from the previous school</li><li><i class="fas fa-check-circle"></i> 2 passport-sized photos of the student</li><li><i class="fas fa-check-circle"></i> Citizenship certificate of the parent/guardian</li></ul></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">School Gallery</h2>
+                <p class="section-subtitle">A Glimpse of Our Memorable Moments</p>
+                <div class="row gy-4">
+                    <div class="col-md-6 col-lg-4"><div class="gallery-card"><img src="Images/annual ceremony.jpg" alt="Annual Function"><div class="gallery-card-body"><h5>Annual Ceremony</h5></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="gallery-card"><img src="Images/sport day.jpg" alt="Sports Day"><div class="gallery-card-body"><h5>Sports Day</h5></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="gallery-card"><img src="Images/science exhibition.jpg" alt="Science Exhibition"><div class="gallery-card-body"><h5>Science Exhibition</h5></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <p class="section-subtitle">Discover the benefits of learning with us.</p>
+                <div class="row gy-4 text-center">
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-users-gear"></i></div><h3>Holistic Development</h3><p>We focus on the all-round development of students, including academics, sports, and arts.</p></div></div>
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-shield-heart"></i></div><h3>Safe Environment</h3><p>We provide a secure and supportive atmosphere where students can learn and grow without fear.</p></div></div>
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-palette"></i></div><h3>Extracurricular Focus</h3><p>We believe in nurturing creativity and talent through a wide range of extracurricular activities.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="events">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Stay updated with our latest events and announcements.</p>
+                <div class="row gy-4">
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Annual Sports Meet</h3><p>Get ready for a day of thrilling athletic competitions and team spirit. Date: [Date]</p></div></div>
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Science Fair 2024</h3><p>Witness the innovative projects and experiments by our talented students. Date: [Date]</p></div></div>
+                    <div class="col-md-4"><div class="card-custom"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Parent-Teacher Meeting</h3><p>An important session to discuss student progress and collaborate for their future. Date: [Date]</p></div></div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- ========= नया और बेहतर फुटर यहाँ से शुरू ========= -->
+    <footer class="mt-0">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: About School -->
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <h5>Shree Janata Higher Sec. School</h5>
+                    <p>Providing quality education and fostering holistic development for a brighter future in the heart of Mohanpur Kamalpur.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="courses.html" class="footer-link">Courses</a></li>
+                        <li class="mb-2"><a href="notices.html" class="footer-link">Notices</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact & Social -->
+                <div class="col-lg-4 col-md-12">
+                    <h5>Follow Us</h5>
+                    <p>Stay connected with us through our social media channels.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2024 Shree Janata Secondary School, Mohanpur Kamalpur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ============================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script>
+        // Star Animation JavaScript
+        const canvas = document.getElementById('star-animation'); const ctx = canvas.getContext('2d'); let stars = []; const numStars = 250; function setCanvasSize() { canvas.width = window.innerWidth; canvas.height = document.body.scrollHeight; } setCanvasSize(); function Star() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 1.5 + 0.5; this.opacity = Math.random(); this.fadeDirection = (Math.random() > 0.5 ? 0.015 : -0.015) * (Math.random() + 0.5); } Star.prototype.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill(); }; Star.prototype.update = function() { this.opacity += this.fadeDirection; if (this.opacity <= 0 || this.opacity >= 1) { this.fadeDirection *= -1; } this.draw(); }; function createStars() { stars = []; for (let i = 0; i < numStars; i++) { stars.push(new Star()); } } function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => { star.update(); }); } window.addEventListener('resize', () => { setCanvasSize(); createStars(); }); createStars(); animate();
+
+        // Typing Animation Initialization Code
+        var options = {
+            strings: ['Shree Janata Higher Secondary School'],
+            typeSpeed: 70,
+            backSpeed: 50,
+            backDelay: 2000,
+            loop: true
+        };
+
+        var typed = new Typed('#typed-heading', options);
+    </script>
+</body>
+</html>
